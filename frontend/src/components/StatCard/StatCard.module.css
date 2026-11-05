@@ -1,0 +1,29 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.compact {
+  font-size: 18px;
+}
+
+.detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: capitalize;
+}

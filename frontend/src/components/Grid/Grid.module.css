@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--min-column-width), 100%), 1fr)
+  );
+  gap: var(--gap);
+  margin-bottom: 24px;
+}
+
+.grid > section {
+  margin-bottom: 0;
+}

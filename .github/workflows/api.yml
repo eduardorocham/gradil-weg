@@ -1,0 +1,58 @@
+name: API
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'api/**'
+      - '.github/workflows/api.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'api/**'
+      - '.github/workflows/api.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: api
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: api/.nvmrc
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+
+      - run: npm ci
+
+      - run: npm run lint
+
+  test:
+    name: Testes
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: api/.nvmrc
+          cache: npm
+          cache-dependency-path: api/package-lock.json
+
+      - run: npm ci
+
+      - run: npm test

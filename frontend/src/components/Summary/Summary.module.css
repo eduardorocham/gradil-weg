@@ -1,0 +1,30 @@
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.item {
+  background: var(--background);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.item span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.item strong {
+  font-size: 20px;
+}
+
+.highlight {
+  background: var(--warning-soft);
+}
+
+.highlight strong {
+  color: var(--warning);
+}

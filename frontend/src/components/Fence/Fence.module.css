@@ -1,0 +1,11 @@
+.sketch {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.sketch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
